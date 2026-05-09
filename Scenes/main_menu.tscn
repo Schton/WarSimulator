@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://di02rkdqabekl" path="res://Assets/UI Elements/MainMenuBG.png" id="2_1ehe0"]
 [ext_resource type="FontFile" uid="uid://c4lkd4kxmkcnt" path="res://Assets/UI Elements/alagard_by_pix3m-d6awiwp.ttf" id="3_ce3w2"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6m47u"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3w2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n45e2"]
@@ -68,6 +70,26 @@ texture = ExtResource("2_1ehe0")
 expand_mode = 1
 flip_h = true
 
+[node name="Label" type="Label" parent="." unique_id=175070582]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.061000004
+anchor_top = 0.065000005
+anchor_right = 0.95100003
+anchor_bottom = 0.20400001
+offset_left = 351.728
+offset_top = -0.12000275
+offset_right = 352.448
+offset_bottom = -0.19200134
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6m47u")
+text = "KINGDOMS OF AGARTHA"
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=295346129]
 layout_mode = 1
 anchors_preset = -1
@@ -87,6 +109,7 @@ theme_override_constants/separation = 64
 [node name="Start" type="Button" parent="MarginContainer/ButtonManager" unique_id=468386879]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_ce3w2")
 theme_override_font_sizes/font_size = 72
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ce3w2")
@@ -106,6 +129,7 @@ text = "Start Game
 [node name="Quit" type="Button" parent="MarginContainer/ButtonManager" unique_id=360860449]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_ce3w2")
 theme_override_font_sizes/font_size = 72
 theme_override_styles/normal = SubResource("StyleBoxEmpty_48xlc")
