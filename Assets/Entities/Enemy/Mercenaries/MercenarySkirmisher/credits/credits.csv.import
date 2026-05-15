@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://casn5xdxh1ky5"
+
+[deps]
+
+files=["res://Assets/Entities/Enemy/Mercenaries/MercenarySkirmisher/credits/credits.notes.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySkirmisher/credits/credits.authors.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySkirmisher/credits/credits.licenses.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySkirmisher/credits/credits.urls.translation"]
+
+source_file="res://Assets/Entities/Enemy/Mercenaries/MercenarySkirmisher/credits/credits.csv"
+dest_files=["res://Assets/Entities/Enemy/Mercenaries/MercenarySkirmisher/credits/credits.notes.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySkirmisher/credits/credits.authors.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySkirmisher/credits/credits.licenses.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySkirmisher/credits/credits.urls.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

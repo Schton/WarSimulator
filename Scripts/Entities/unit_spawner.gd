@@ -4,8 +4,7 @@ extends Node2D
 @export var border_color := Color(1, 0, 0, 0.3) # Slightly darker red for the edge
 
 @export_group("Spawn Settings")
-@export var unit_scene: PackedScene # Drag Enemy.tscn or Ally.tscn here
-@export var max_units := 5           # Max units this spawner can have alive
+@export var spawn_entries: Array[SpawnEntry] = []
 @export var spawn_delay := 3.0      # Seconds between spawns
 @export var spawn_range := 100.0    # Random radius around spawner
 
@@ -19,50 +18,57 @@ var is_captured := false
 @export var faction_to_assign: int = 1 # 0 for Player/Ally, 1 for Enemy
 @export var make_ally := false
 
-var living_units: Array[Node2D] = []
+var living_units := {}
 @onready var spawn_timer = $Timer
 @onready var capture_zone = $CaptureZone
 
 func _ready():
 	$CaptureZone/CollisionShape2D.shape.radius = capture_radius
+	update_spawner_color()
+	if not make_ally:
+		add_to_group("enemy_spawners")
 
 	spawn_timer.wait_time = spawn_delay
 	spawn_timer.start()
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	for entry in spawn_entries:
+		living_units[entry] = []
 
 func _on_spawn_timer_timeout():
 	if is_captured: return # Stop spawning if captured
 
-	# Clean up the list: remove units that were killed (freed)
-	living_units = living_units.filter(func(unit): return is_instance_valid(unit))
+	for entry in spawn_entries:
+		# Cleanup dead units
+		living_units[entry] = living_units[entry].filter(
+			func(unit): return is_instance_valid(unit)
+		)
+		# Spawn only if below max for THIS type
+		if living_units[entry].size() < entry.max_alive:
+			spawn_unit(entry)
 
-	if living_units.size() < max_units:
-		spawn_unit()
-
-func spawn_unit():
-	if unit_scene == null:
+func spawn_unit(entry: SpawnEntry):
+	if entry.unit_scene == null:
 		print("Spawner Warning: No unit scene assigned!")
 		return
 
-	# 1. Create the instance
-	var unit = unit_scene.instantiate()
-
-	# 2. Add it to the world BEFORE setting position
-	# This ensures the unit has a valid 'global' space to live in
+	var unit = entry.unit_scene.instantiate()
 	get_parent().add_child(unit)
 
-	# 3. Calculate and set the position globally
-	# This bypasses any scale/rotation issues from parent nodes
-	var random_offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized() * randf_range(0, spawn_range)
-	unit.global_position = self.global_position + random_offset
+	var random_offset = Vector2(
+		randf_range(-1, 1),
+		randf_range(-1, 1)
+	).normalized() * randf_range(0, spawn_range)
 
-	# 4. Set up the unit data
-	if "faction" in unit: unit.faction = faction_to_assign
-	if "is_ally" in unit: unit.is_ally = make_ally
+	unit.global_position = global_position + random_offset
 
-	# 5. Connect signals and track the unit
+	# Apply faction settings
+	if "faction" in unit:
+		unit.faction = entry.faction
+	if "is_ally" in unit:
+		unit.is_ally = entry.make_ally
+
 	unit.unit_died.connect(_on_unit_death)
-	living_units.append(unit)
+	living_units[entry].append(unit)
 
 func _on_unit_death(death_pos: Vector2):
 	if is_captured: return
@@ -77,6 +83,11 @@ func _on_unit_death(death_pos: Vector2):
 			capture_zone_complete()
 
 func capture_zone_complete():
+	remove_from_group("enemy_spawners")
+	var manager = get_tree().get_first_node_in_group("level_manager")
+	if manager:
+		manager.check_victory()
+
 	is_captured = true
 	spawn_timer.stop()
 	print("ZONE CAPTURED! Spawner deactivated.")
@@ -89,3 +100,20 @@ func _draw():
 
 	draw_circle(Vector2.ZERO, capture_radius, zone_color)
 	draw_arc(Vector2.ZERO, capture_radius, 0, TAU, 100, border_color, 2.0)
+
+func update_spawner_color():
+	var has_allies = false
+
+	for entry in spawn_entries:
+		if entry.make_ally:
+			has_allies = true
+			break
+
+	if has_allies:
+		zone_color = Color(0, 1, 0, 0.1)
+		border_color = Color(0, 1, 0, 0.4)
+	else:
+		zone_color = Color(1, 0, 0, 0.1)
+		border_color = Color(1, 0, 0, 0.4)
+
+	queue_redraw()
