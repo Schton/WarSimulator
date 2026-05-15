@@ -7,6 +7,7 @@ var state = State.ALIVE
 var current_duelist = null
 
 @export var faction = Faction.PLAYER
+@export var is_ally := false
 
 @export var projectile_scene: PackedScene
 @export var projectile_distance := 600.0
@@ -37,6 +38,7 @@ func _ready():
 	hp = max_hp
 	$SwordHitbox.monitoring = false
 	add_to_group("units")
+	add_to_group("player")
 
 func _process(delta):
 	if Input.is_action_just_pressed("mouse_left") and not is_attacking:
@@ -162,15 +164,19 @@ func start_sword_hit():
 	await get_tree().physics_frame 
 	
 	var bodies = hitbox.get_overlapping_bodies()
-	print("Checking for bodies... found: ", bodies.size()) # Debug this!
+	#print("Checking for bodies... found: ", bodies.size()) # Debug this!
 
 	for body in bodies:
 		if body.has_method("take_damage") and body.faction != faction:
 			var knock = global_position.direction_to(body.global_position)
 			body.take_damage(sword_damage, knock)
 			
-	await get_tree().create_timer(0.1).timeout
-	hitbox.monitoring = false
+	var tree := get_tree()
+	if tree == null:
+		return
+	await tree.create_timer(0.1).timeout
+	if !is_inside_tree():
+		return
 
 func position_sword_hitbox():
 	var hitbox = $SwordHitbox
@@ -264,11 +270,13 @@ func take_damage(amount, knock_dir := Vector2.ZERO, attacker = null):
 	invincible = false
 
 func die():
+	state = State.DEAD
 	anim.play("death")
-	queue_free()
+	await anim.animation_finished
+	get_tree().change_scene_to_file("res://Scenes/defeat_screen.tscn")
 
 func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage") and body.faction != faction:
 		var knock = global_position.direction_to(body.global_position)
 		body.take_damage(sword_damage, knock)
-	print("Sword touched:", body.name)
+	#print("Sword touched:", body.name)

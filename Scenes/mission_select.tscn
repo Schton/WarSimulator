@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cy561mx6rlnsn"]
+
+[ext_resource type="Script" uid="uid://ce8jvoagdl0fu" path="res://Scripts/mission_select.gd" id="1_kbmab"]
+[ext_resource type="Texture2D" uid="uid://bn26q0jlabb5t" path="res://Assets/UI Elements/ChapterSelect.png" id="2_kbmab"]
+[ext_resource type="FontFile" uid="uid://c4lkd4kxmkcnt" path="res://Assets/UI Elements/alagard_by_pix3m-d6awiwp.ttf" id="3_4ehau"]
+
+[node name="MissionSelect" type="Control" unique_id=2062547793]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kbmab")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=959298952]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kbmab")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="." unique_id=46920669]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18800001
+anchor_top = 0.093
+anchor_right = 0.18800001
+anchor_bottom = 0.093
+offset_left = -99.576004
+offset_top = -35.264
+offset_right = 106.423996
+offset_bottom = 35.736
+theme_override_fonts/font = ExtResource("3_4ehau")
+theme_override_font_sizes/font_size = 40
+text = "RETURN"
+
+[node name="BalduinChapter" type="Button" parent="." unique_id=1761925603]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.282
+anchor_top = 0.87200004
+anchor_right = 0.282
+anchor_bottom = 0.87200004
+offset_left = -71.86401
+offset_top = -33.05603
+offset_right = 71.13599
+offset_bottom = 32.94397
+theme_override_fonts/font = ExtResource("3_4ehau")
+theme_override_font_sizes/font_size = 30
+text = "SELECT"
+
+[node name="SeraphinaChapter" type="Button" parent="." unique_id=53630650]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49500003
+anchor_top = 0.869
+anchor_right = 0.49500003
+anchor_bottom = 0.869
+offset_left = -71.24005
+offset_top = -33.112
+offset_right = 71.75995
+offset_bottom = 32.888
+theme_override_fonts/font = ExtResource("3_4ehau")
+theme_override_font_sizes/font_size = 30
+text = "SELECT"
+
+[node name="GoldHawkChapter" type="Button" parent="." unique_id=1577408815]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.716
+anchor_top = 0.87200004
+anchor_right = 0.716
+anchor_bottom = 0.87200004
+offset_left = -71.83203
+offset_top = -33.05603
+offset_right = 71.16797
+offset_bottom = 32.94397
+theme_override_fonts/font = ExtResource("3_4ehau")
+theme_override_font_sizes/font_size = 30
+text = "SELECT"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BalduinChapter" to="." method="_on_balduin_chapter_pressed"]
+[connection signal="pressed" from="SeraphinaChapter" to="." method="_on_seraphina_chapter_pressed"]
+[connection signal="pressed" from="GoldHawkChapter" to="." method="_on_gold_hawk_chapter_pressed"]
