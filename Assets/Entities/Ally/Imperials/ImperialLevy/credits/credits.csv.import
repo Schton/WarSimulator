@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://jyy1a0s7jgkm"
+
+[deps]
+
+files=["res://Assets/Entities/Ally/Imperials/ImperialLevy/credits/credits.notes.translation", "res://Assets/Entities/Ally/Imperials/ImperialLevy/credits/credits.authors.translation", "res://Assets/Entities/Ally/Imperials/ImperialLevy/credits/credits.licenses.translation", "res://Assets/Entities/Ally/Imperials/ImperialLevy/credits/credits.urls.translation"]
+
+source_file="res://Assets/Entities/Ally/Imperials/ImperialLevy/credits/credits.csv"
+dest_files=["res://Assets/Entities/Ally/Imperials/ImperialLevy/credits/credits.notes.translation", "res://Assets/Entities/Ally/Imperials/ImperialLevy/credits/credits.authors.translation", "res://Assets/Entities/Ally/Imperials/ImperialLevy/credits/credits.licenses.translation", "res://Assets/Entities/Ally/Imperials/ImperialLevy/credits/credits.urls.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

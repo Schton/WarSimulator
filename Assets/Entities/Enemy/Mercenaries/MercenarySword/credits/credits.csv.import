@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c7e7g60lee3xs"
+
+[deps]
+
+files=["res://Assets/Entities/Enemy/Mercenaries/MercenarySword/credits/credits.notes.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySword/credits/credits.authors.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySword/credits/credits.licenses.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySword/credits/credits.urls.translation"]
+
+source_file="res://Assets/Entities/Enemy/Mercenaries/MercenarySword/credits/credits.csv"
+dest_files=["res://Assets/Entities/Enemy/Mercenaries/MercenarySword/credits/credits.notes.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySword/credits/credits.authors.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySword/credits/credits.licenses.translation", "res://Assets/Entities/Enemy/Mercenaries/MercenarySword/credits/credits.urls.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

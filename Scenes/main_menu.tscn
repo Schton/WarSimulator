@@ -1,32 +1,8 @@
 [gd_scene format=3 uid="uid://5tlc8t2mgjv5"]
 
 [ext_resource type="Script" uid="uid://c54yq8vnkctlo" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
-[ext_resource type="Texture2D" uid="uid://di02rkdqabekl" path="res://Assets/UI Elements/MainMenuBG.png" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://bog564fv3p7ip" path="res://Assets/UI Elements/MenuBG2.png" id="2_1ehe0"]
 [ext_resource type="FontFile" uid="uid://c4lkd4kxmkcnt" path="res://Assets/UI Elements/alagard_by_pix3m-d6awiwp.ttf" id="3_ce3w2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6m47u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3w2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n45e2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opfnp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cp0ys"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhxw7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trj04"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hvj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr1f0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1dhk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5egv6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vtepg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48xlc"]
 
@@ -50,6 +26,28 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jr6u5"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ce3w2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n45e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opfnp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cp0ys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhxw7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trj04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hvj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr1f0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1dhk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5egv6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vtepg"]
+
 [node name="MainMenu" type="Control" unique_id=294060902]
 layout_mode = 3
 anchors_preset = 15
@@ -68,70 +66,24 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_1ehe0")
 expand_mode = 1
-flip_h = true
 
-[node name="Label" type="Label" parent="." unique_id=175070582]
+[node name="Quit" type="Button" parent="TextureRect" unique_id=871552473]
+z_index = 20
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.061000004
-anchor_top = 0.065000005
-anchor_right = 0.95100003
-anchor_bottom = 0.20400001
-offset_left = 351.728
-offset_top = -0.12000275
-offset_right = 352.448
-offset_bottom = -0.19200134
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("3_ce3w2")
-theme_override_font_sizes/font_size = 96
-theme_override_styles/normal = SubResource("StyleBoxEmpty_6m47u")
-text = "KINGDOMS OF AGARTHA"
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=295346129]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.201
-anchor_right = 0.51500005
-anchor_bottom = 1.0
-offset_left = 0.44799805
-offset_right = -265.28003
-grow_vertical = 2
-
-[node name="ButtonManager" type="VBoxContainer" parent="MarginContainer" unique_id=519784355]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 64
-
-[node name="Start" type="Button" parent="MarginContainer/ButtonManager" unique_id=468386879]
-layout_mode = 2
+anchor_left = 0.56200004
+anchor_top = 0.74100006
+anchor_right = 0.683
+anchor_bottom = 0.846
+offset_left = -0.42407227
+offset_top = -0.16802979
+offset_right = 0.18395996
+offset_bottom = -0.20800781
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.95686275, 0.078431375, 0.12156863, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_ce3w2")
-theme_override_font_sizes/font_size = 72
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ce3w2")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_n45e2")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_opfnp")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cp0ys")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_yhxw7")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_trj04")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_16hvj")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vr1f0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1dhk")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5egv6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vtepg")
-text = "Start Game
-"
-
-[node name="Quit" type="Button" parent="MarginContainer/ButtonManager" unique_id=360860449]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("3_ce3w2")
-theme_override_font_sizes/font_size = 72
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxEmpty_48xlc")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1ehe0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8dnnj")
@@ -146,5 +98,37 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_jr6u5")
 text = "Quit
 "
 
-[connection signal="pressed" from="MarginContainer/ButtonManager/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/ButtonManager/Quit" to="." method="_on_quit_pressed"]
+[node name="Start" type="Button" parent="TextureRect" unique_id=468386879]
+z_index = 20
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.273
+anchor_top = 0.68500006
+anchor_right = 0.42100003
+anchor_bottom = 0.89500004
+offset_left = -0.4960022
+offset_top = 0.1199646
+offset_right = 0.007965088
+offset_bottom = 0.039978027
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.6094387, 0.60657513, 0.009138297, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ce3w2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_n45e2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_opfnp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_cp0ys")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yhxw7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_trj04")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_16hvj")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vr1f0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1dhk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5egv6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vtepg")
+text = "Start 
+Game
+"
+
+[connection signal="pressed" from="TextureRect/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="TextureRect/Start" to="." method="_on_start_pressed"]

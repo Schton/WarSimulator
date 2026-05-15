@@ -18,6 +18,16 @@ var is_attacking_anim := false
 
 var external_push := Vector2.ZERO
 
+@onready var nav_agent := $NavigationAgent2D
+var path_refresh_time := 0.45 # Don't recalculate every single frame
+var path_timer := 0.0
+
+var visual_dir := Vector2.DOWN
+var turn_lock_timer := 0.0
+
+@export var turn_lock_duration := 0.12
+@export var min_turn_velocity := 20.0
+
 # =====================================================
 # ADVANCED SOULSLIKE ENEMY AI (Godot 4)
 # Features:
@@ -54,7 +64,7 @@ var offset = Vector2.ZERO
 # SETTINGS
 # ==========================
 
-@export var move_speed := 130.0
+@export var move_speed := 60.0
 @export var detect_range := 420.0
 @export var lose_range := 700.0
 @export var attack_range := 55.0
@@ -66,11 +76,7 @@ var offset = Vector2.ZERO
 @export var attack_cooldown := 1.2
 @export var stun_time := 0.35
 
-# ==========================
-# PHYSICS / MASS
-# ==========================
 @export var mass := 1.0          # 1.0 = baseline. Higher = pushes others, resists pushes.
-@export var knockback_base := 220.0
 
 # ==========================
 # REFERENCES
@@ -114,20 +120,17 @@ func _ready():
 # MAIN LOOP
 # =====================================================
 func _physics_process(delta):
-
+	turn_lock_timer -= delta
 	external_push = external_push.move_toward(Vector2.ZERO, 300.0 * delta)
 
 	if target == null or not is_instance_valid(target):
 		find_target()
 
 # If STILL no target, just idle safely
-	if target == null:
+	if target == null and player == null:
 		velocity = external_push
 		move_and_slide()
 		update_animation()
-		return
-
-	if player == null:
 		return
 
 	match state:
@@ -161,10 +164,22 @@ func _physics_process(delta):
 
 		State.DEAD:
 			velocity = external_push
+			move_and_slide()
+			return
 
-	if velocity.length() < 5:
-		velocity = external_push
+# =============================
+# MOVEMENT
+# =============================
+	if state in [State.CHASE, State.FOLLOW, State.RETURN_HOME]:
+		path_timer += delta
+		if path_timer >= path_refresh_time:
+			update_path()
+			path_timer = 0.0
+		move_along_path()
+	else:
+		velocity += external_push
 
+	# ONE physics move only
 	move_and_slide()
 	update_animation()
 
@@ -173,19 +188,22 @@ func _physics_process(delta):
 # =====================================================
 
 func state_follow():
-
-	var desired_pos = player.global_position + offset
-	var dist = global_position.distance_to(desired_pos)
-
-	if dist > 15:
-		var dir = global_position.direction_to(desired_pos)
-		velocity = (dir * move_speed) + apply_separation() + external_push
-	else:
+	if not is_instance_valid(player):
 		velocity = external_push
+		return
 
+	# Look for nearby enemies first
 	find_target()
-	if target != null and distance_to_target() < detect_range:
-		state = State.CHASE # Switch to combat logic
+
+	# If enemy found -> engage immediately
+	if target != null:
+		state = State.CHASE
+		return
+
+	# Otherwise follow player
+	var desired_pos = player.global_position + offset
+	if nav_agent:
+		nav_agent.target_position = desired_pos
 
 func state_engage():
 
@@ -218,32 +236,32 @@ func state_patrol():
 	velocity = external_push
 
 func state_chase():
+	# If target is dead or gone, go back to following player
+	if not is_instance_valid(target):
+		target = null
+		state = State.FOLLOW # <--- This is the fix
+		return
+
 	var dist = distance_to_target()
-	var dir = direction_to_target()
+
+# If the enemy ran too far away, stop chasing and return to player
+	if dist > lose_range:
+		target = null
+		state = State.FOLLOW
+		return
 
 	if dist > lose_range:
 		state = State.RETURN_HOME
 		return
 
-	# 1. ALWAYS check for attack first if in range
 	if dist <= attack_range + 5:
 		try_attack()
 		return
 
-	# 2. Check for strafing ONLY if we are in strafe range AND have been hit
-	if dist <= strafe_range:
-		# 10% chance every frame to start strafing instead of charging blindly
-		if randf() < 0.01 or hits_taken_recently >= hits_to_trigger_strafe:
-			state = State.STRAFE
-			strafe_timer = strafe_time_limit
-			return
-		# If we haven't been hit enough, we DON'T return; 
-		# we let the code fall through to the movement logic below.
-
-	# 3. Movement logic
-	velocity = (dir * move_speed) + apply_separation() + external_push
-	velocity = velocity.limit_length(move_speed)
-	last_move_dir = dir
+	if dist <= strafe_range and (randf() < 0.01 or hits_taken_recently >= hits_to_trigger_strafe):
+		state = State.STRAFE
+		strafe_timer = strafe_time_limit
+		return
 
 func state_strafe():
 	if not is_instance_valid(target):
@@ -391,34 +409,34 @@ func start_attack():
 
 func find_target():
 	var units = get_tree().get_nodes_in_group("units")
+
 	var closest_enemy = null
-	var closest_dist = INF
+	var closest_dist = detect_range # IMPORTANT
 
 	for u in units:
-		if u == self: continue
-
-		# Safe check for state
-
+		if u == self:
+			continue
 		if not is_instance_valid(u):
 			continue
 		if u.state == State.DEAD:
 			continue
-		if u.faction == faction: continue
+		if u.faction == faction:
+			continue
 
 		var d = global_position.distance_to(u.global_position)
+
+		# Ignore enemies outside detection range
+		if d > detect_range:
+			continue
 		if d < closest_dist:
 			closest_enemy = u
 			closest_dist = d
-
+	# Clear old duel
 	if closest_enemy != target:
-		# If we found someone new, clear our old duel status
 		if is_instance_valid(target) and "current_duelist" in target:
-			target.current_duelist = null  
-
+			target.current_duelist = null
 		target = closest_enemy
-		
-		# Lock into a duel
-		if target: 
+		if target and "current_duelist" in target:
 			target.current_duelist = self
 
 # =====================================================
@@ -451,14 +469,10 @@ func take_damage(amount, knock_dir := Vector2.ZERO, attacker = null):
 	state = State.STUN
 	stun_timer = stun_time
 
-	# Mass-scaled knockback: heavy attackers push hard, heavy victims resist.
-	var attacker_mass := 1.0
-	if attacker and "mass" in attacker:
-		attacker_mass = attacker.mass
-	velocity = knock_dir * knockback_base * (attacker_mass / max(mass, 0.01))
-
-	# anim.play("hurt_" + get_dir(direction_to_target()))
-	print("Enemy HP:", health)
+	var hurt_anim = "hurt_" + get_dir(direction_to_target())
+	anim.play(hurt_anim)
+	current_anim = ""
+	#print("Enemy HP:", health)
 
 func die():
 	unit_died.emit(global_position)
@@ -489,8 +503,9 @@ func die():
 # =====================================================
 
 func distance_to_target():
+# Check if target exists AND is still in the game world
 	if target == null or not is_instance_valid(target):
-		return INF
+		return INF # Return "Infinity" so the AI thinks the target is too far
 	return global_position.distance_to(target.global_position)
 
 func direction_to_target():
@@ -508,10 +523,23 @@ func update_animation():
 
 	var next_anim
 
-	if velocity.length() > 10:
-		next_anim = "walk_" + get_dir(last_move_dir)
+# 1. Use a threshold to prevent "micro-walk" animations
+	# If the unit is moving slower than 15 pixels/sec, force IDLE
+	if velocity.length() > min_turn_velocity:
+		var desired_dir = velocity.normalized()
+		# Only allow turning if timer expired
+		if turn_lock_timer <= 0.0:
+			# Prevent tiny twitch turns
+			if visual_dir.dot(desired_dir) < 0.85:
+				visual_dir = desired_dir
+				turn_lock_timer = turn_lock_duration
+		next_anim = "walk_" + get_dir(visual_dir)
 	else:
-		next_anim = "idle_" + get_dir(last_move_dir)
+		next_anim = "idle_" + get_dir(visual_dir)
+
+	if current_anim != next_anim:
+		anim.play(next_anim)
+		current_anim = next_anim
 
 	if current_anim != next_anim:
 		anim.play(next_anim)
@@ -530,28 +558,62 @@ func apply_separation():
 	var my_mass: float = mass if mass > 0.01 else 1.0
 
 	for u in units:
-		if u == self:
-			continue
-		if not is_instance_valid(u):
+		if u == self or not is_instance_valid(u):
 			continue
 
 		var dist = global_position.distance_to(u.global_position)
-		if dist >= 25.0:
+		# 25.0 is a bit tight; 30.0-35.0 often feels "cleaner" for 16x16 or 32x32 sprites
+		if dist >= 30.0: 
 			continue
 
-		# Pull other unit's mass; default 1.0 if it doesn't expose one.
-		var other_mass: float = 1.0
-		if "mass" in u:
-			other_mass = u.mass if u.mass > 0.01 else 1.0
-
-		# Distance falloff (same curve as before).
-		var strength = 1.0 - (dist / 25.0)
-
-		# Mass ratio: a unit twice my mass pushes me twice as hard.
-		# A unit half my mass barely nudges me.
+		var other_mass: float = u.get("mass") if "mass" in u else 1.0
+		var strength = 1.0 - (dist / 30.0)
 		var mass_ratio = other_mass / my_mass
 
-		push += (global_position - u.global_position).normalized() \
-				* strength * mass_ratio
+		push += (global_position - u.global_position).normalized() * strength * mass_ratio
 
-	return push * 15.0 # Lowered multiplier
+	# THE CRITICAL CHANGE:
+	# We multiply by a strength factor, then LIMIT it.
+	# This prevents the "explosion" effect in large groups.
+	return (push * 10.0).limit_length(move_speed * 0.15)
+
+# =====================================================
+# Pathfinding
+# =====================================================
+
+# 1. Tell the agent where to go
+func update_path():
+	if nav_agent == null: 
+		return
+		
+	if state == State.RETURN_HOME:
+		nav_agent.target_position = spawn_position
+	# ADD THE "is_instance_valid" CHECK HERE:
+	elif target != null and is_instance_valid(target):
+		nav_agent.target_position = target.global_position
+	else:
+		# If no target, stay where you are to avoid errors
+		nav_agent.target_position = global_position
+
+# 2. Get the next physical direction to move
+func move_along_path():
+
+	if state == State.ATTACK:
+		velocity = external_push
+		return
+
+	if nav_agent.is_navigation_finished():
+		velocity = apply_separation()
+		return
+
+	var next_path_pos = nav_agent.get_next_path_position()
+
+	var dir = global_position.direction_to(next_path_pos)
+
+	velocity = dir * move_speed
+	velocity += apply_separation()
+
+	last_move_dir = dir
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	pass

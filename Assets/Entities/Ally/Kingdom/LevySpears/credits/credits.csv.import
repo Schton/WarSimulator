@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dq7n47c3u47nh"
+
+[deps]
+
+files=["res://Assets/Entities/Ally/Kingdom/LevySpears/credits/credits.notes.translation", "res://Assets/Entities/Ally/Kingdom/LevySpears/credits/credits.authors.translation", "res://Assets/Entities/Ally/Kingdom/LevySpears/credits/credits.licenses.translation", "res://Assets/Entities/Ally/Kingdom/LevySpears/credits/credits.urls.translation"]
+
+source_file="res://Assets/Entities/Ally/Kingdom/LevySpears/credits/credits.csv"
+dest_files=["res://Assets/Entities/Ally/Kingdom/LevySpears/credits/credits.notes.translation", "res://Assets/Entities/Ally/Kingdom/LevySpears/credits/credits.authors.translation", "res://Assets/Entities/Ally/Kingdom/LevySpears/credits/credits.licenses.translation", "res://Assets/Entities/Ally/Kingdom/LevySpears/credits/credits.urls.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

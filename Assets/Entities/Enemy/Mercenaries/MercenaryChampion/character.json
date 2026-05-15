@@ -1,0 +1,971 @@
+{
+  "version": 2,
+  "bodyType": "male",
+  "selections": {
+    "body": {
+      "itemId": "body",
+      "subId": null,
+      "variant": "",
+      "recolor": "light",
+      "name": "Body Color (light)"
+    },
+    "head": {
+      "itemId": "heads_human_male",
+      "subId": null,
+      "variant": "",
+      "recolor": "light",
+      "name": "Human Male (light)"
+    },
+    "expression": {
+      "itemId": "face_neutral",
+      "subId": null,
+      "variant": "",
+      "recolor": "light",
+      "name": "Neutral (light)"
+    },
+    "shoes": {
+      "itemId": "feet_armour",
+      "subId": null,
+      "variant": "bronze",
+      "recolor": "",
+      "name": "Armour (bronze)"
+    },
+    "clothes": {
+      "itemId": "torso_clothes_longsleeve",
+      "subId": null,
+      "variant": "",
+      "recolor": "red",
+      "name": "Longsleeve (red)"
+    },
+    "legs": {
+      "itemId": "legs_pants",
+      "subId": null,
+      "variant": "",
+      "recolor": "red",
+      "name": "Pants (red)"
+    },
+    "armour": {
+      "itemId": "torso_armour_plate",
+      "subId": null,
+      "variant": "",
+      "recolor": "bronze",
+      "name": "Plate (bronze)"
+    },
+    "hat": {
+      "itemId": "hat_helmet_morion",
+      "subId": null,
+      "variant": "",
+      "recolor": "bronze",
+      "name": "Morion (bronze)"
+    },
+    "visor": {
+      "itemId": "hat_visor_grated_narrow",
+      "subId": null,
+      "variant": "",
+      "recolor": "bronze",
+      "name": "Narrow grated visor (bronze)"
+    },
+    "chainmail": {
+      "itemId": "torso_chainmail",
+      "subId": null,
+      "variant": "",
+      "recolor": "bronze",
+      "name": "Chainmail (bronze)"
+    },
+    "weapon": {
+      "itemId": "weapon_sword_saber",
+      "subId": null,
+      "variant": "saber",
+      "recolor": "",
+      "name": "Saber (saber)"
+    },
+    "accessory": {
+      "itemId": "hat_accessory_plumage",
+      "subId": null,
+      "variant": "",
+      "recolor": "red",
+      "name": "Plumage (red)"
+    },
+    "shield": {
+      "itemId": "shield_heater_wood",
+      "subId": null,
+      "variant": "oak",
+      "recolor": "",
+      "name": "Heater Shield Base (oak)"
+    },
+    "shield_paint": {
+      "itemId": "shield_heater_paint",
+      "subId": null,
+      "variant": "red",
+      "recolor": "",
+      "name": "Heater Shield Paint (red)"
+    },
+    "shield_trim": {
+      "itemId": "shield_heater_trim",
+      "subId": null,
+      "variant": "steel",
+      "recolor": "",
+      "name": "Heater Shield Trim (steel)"
+    }
+  },
+  "selectedAnimation": "walk",
+  "showTransparencyGrid": true,
+  "applyTransparencyMask": false,
+  "matchBodyColorEnabled": true,
+  "compactDisplay": false,
+  "enabledLicenses": {
+    "CC0": true,
+    "CC-BY-SA": true,
+    "CC-BY": true,
+    "OGA-BY": true,
+    "GPL": true
+  },
+  "enabledAnimations": {
+    "spellcast": false,
+    "thrust": false,
+    "walk": false,
+    "slash": false,
+    "shoot": false,
+    "hurt": false,
+    "climb": false,
+    "idle": false,
+    "jump": false,
+    "sit": false,
+    "emote": false,
+    "run": false,
+    "watering": false,
+    "combat": false,
+    "1h_slash": false,
+    "1h_backslash": false,
+    "1h_halfslash": false
+  },
+  "url": "https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#sex=male&body=Body_Color_light&head=Human_Male_light&expression=Neutral_light&shoes=Armour_bronze&clothes=Longsleeve_red&legs=Pants_red&armour=Plate_bronze&hat=Morion_bronze&visor=Narrow_grated_visor_bronze&chainmail=Chainmail_bronze&weapon=Saber_saber&accessory=Plumage_red&shield=Heater_Shield_Base_oak&shield_paint=Heater_Shield_Paint_red&shield_trim=Heater_Shield_Trim_steel",
+  "layers": [
+    {
+      "itemId": "shield_heater_wood",
+      "name": "Heater Shield Base (oak)",
+      "variant": "oak",
+      "recolors": null,
+      "zPos": 2,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "shield/heater/original/wood/bg/spellcast/oak.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "shield_heater_paint",
+      "name": "Heater Shield Paint (red)",
+      "variant": "red",
+      "recolors": null,
+      "zPos": 3,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "shield/heater/original/paint/bg/spellcast/red.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "shield_heater_trim",
+      "name": "Heater Shield Trim (steel)",
+      "variant": "steel",
+      "recolors": null,
+      "zPos": 6,
+      "layerNum": 2,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "shield/heater/original/trim/bg/spellcast/steel.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "weapon_sword_saber",
+      "name": "Saber (saber)",
+      "variant": "saber",
+      "recolors": null,
+      "zPos": 9,
+      "layerNum": 2,
+      "yPos": 512,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "weapon/sword/saber/universal_behind/walk/saber.png",
+      "supportedAnimations": [
+        "walk",
+        "hurt"
+      ]
+    },
+    {
+      "itemId": "body",
+      "name": "Body Color (light)",
+      "variant": "",
+      "recolors": {
+        "body": "light"
+      },
+      "zPos": 10,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "body/bodies/male/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "feet_armour",
+      "name": "Armour (bronze)",
+      "variant": "bronze",
+      "recolors": null,
+      "zPos": 15,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "feet/armour/plate/male/spellcast/bronze.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "idle"
+      ]
+    },
+    {
+      "itemId": "legs_pants",
+      "name": "Pants (red)",
+      "variant": "",
+      "recolors": {
+        "legs": "red"
+      },
+      "zPos": 20,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "legs/pants/male/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "torso_clothes_longsleeve",
+      "name": "Longsleeve (red)",
+      "variant": "",
+      "recolors": {
+        "clothes": "red"
+      },
+      "zPos": 35,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "torso/clothes/longsleeve/longsleeve/male/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "torso_chainmail",
+      "name": "Chainmail (bronze)",
+      "variant": "",
+      "recolors": {
+        "chainmail": "bronze"
+      },
+      "zPos": 50,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "torso/chainmail/male/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote"
+      ]
+    },
+    {
+      "itemId": "torso_armour_plate",
+      "name": "Plate (bronze)",
+      "variant": "",
+      "recolors": {
+        "armour": "bronze"
+      },
+      "zPos": 60,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "torso/armour/plate/male/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "heads_human_male",
+      "name": "Human Male (light)",
+      "variant": "",
+      "recolors": {
+        "head": "light"
+      },
+      "zPos": 100,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "head/heads/human/male/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "face_neutral",
+      "name": "Neutral (light)",
+      "variant": "",
+      "recolors": {
+        "expression": "light"
+      },
+      "zPos": 101,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "head/faces/male/neutral/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "shield_heater_wood",
+      "name": "Heater Shield Base (oak)",
+      "variant": "oak",
+      "recolors": null,
+      "zPos": 110,
+      "layerNum": 2,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "shield/heater/original/wood/fg/spellcast/oak.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "shield_heater_paint",
+      "name": "Heater Shield Paint (red)",
+      "variant": "red",
+      "recolors": null,
+      "zPos": 111,
+      "layerNum": 2,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "shield/heater/original/paint/fg/spellcast/red.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "shield_heater_trim",
+      "name": "Heater Shield Trim (steel)",
+      "variant": "steel",
+      "recolors": null,
+      "zPos": 115,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "shield/heater/original/trim/fg/spellcast/steel.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "hat_visor_grated_narrow",
+      "name": "Narrow grated visor (bronze)",
+      "variant": "",
+      "recolors": {
+        "visor": "bronze"
+      },
+      "zPos": 132,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "hat/visor/grated_narrow/adult/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "hat_helmet_morion",
+      "name": "Morion (bronze)",
+      "variant": "",
+      "recolors": {
+        "hat": "bronze"
+      },
+      "zPos": 135,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "hat/helmet/morion/adult/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "hat_accessory_plumage",
+      "name": "Plumage (red)",
+      "variant": "",
+      "recolors": {
+        "accessory": "red"
+      },
+      "zPos": 139,
+      "layerNum": 1,
+      "yPos": 0,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "hat/accessory/plumage/adult/spellcast.png",
+      "supportedAnimations": [
+        "spellcast",
+        "thrust",
+        "walk",
+        "slash",
+        "shoot",
+        "hurt",
+        "climb",
+        "idle",
+        "jump",
+        "sit",
+        "emote",
+        "run",
+        "combat_idle",
+        "backslash",
+        "halfslash"
+      ]
+    },
+    {
+      "itemId": "weapon_sword_saber",
+      "name": "Saber (saber)",
+      "variant": "saber",
+      "recolors": null,
+      "zPos": 140,
+      "layerNum": 1,
+      "yPos": 512,
+      "isCustom": false,
+      "needsRecolor": false,
+      "fileName": "weapon/sword/saber/walk/saber.png",
+      "supportedAnimations": [
+        "walk",
+        "hurt"
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "fileName": "body/bodies/male/walk.png",
+      "file": "body/bodies/male",
+      "notes": "see details at https://opengameart.org/content/lpc-character-bases; 'Thick' Male Revised Run/Climb by JaidynReiman (based on ElizaWy's LPC Revised)",
+      "authors": [
+        "bluecarrot16",
+        "JaidynReiman",
+        "Benjamin K. Smith (BenCreating)",
+        "Evert",
+        "Eliza Wyatt (ElizaWy)",
+        "TheraHedwig",
+        "MuffinElZangano",
+        "Durrani",
+        "Johannes Sjölund (wulax)",
+        "Stephen Challener (Redshrike)"
+      ],
+      "licenses": [
+        "OGA-BY 3.0",
+        "CC-BY-SA 3.0",
+        "GPL 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles",
+        "https://opengameart.org/content/lpc-medieval-fantasy-character-sprites",
+        "https://opengameart.org/content/lpc-male-jumping-animation-by-durrani",
+        "https://opengameart.org/content/lpc-runcycle-and-diagonal-walkcycle",
+        "https://opengameart.org/content/lpc-revised-character-basics",
+        "https://opengameart.org/content/lpc-be-seated",
+        "https://opengameart.org/content/lpc-runcycle-for-male-muscular-and-pregnant-character-bases-with-modular-heads",
+        "https://opengameart.org/content/lpc-jump-expanded",
+        "https://opengameart.org/content/lpc-character-bases"
+      ]
+    },
+    {
+      "fileName": "head/heads/human/male/walk.png",
+      "file": "head/heads/human/male",
+      "notes": "original head by Redshrike, tweaks by BenCreating, modular version by bluecarrot16",
+      "authors": [
+        "bluecarrot16",
+        "Benjamin K. Smith (BenCreating)",
+        "Stephen Challener (Redshrike)"
+      ],
+      "licenses": [
+        "OGA-BY 3.0",
+        "CC-BY-SA 3.0",
+        "GPL 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles",
+        "https://opengameart.org/content/lpc-character-bases"
+      ]
+    },
+    {
+      "fileName": "head/faces/male/neutral/walk.png",
+      "file": "head/faces",
+      "notes": "Original by Redshrike, Expressions by ElizaWy, mapped to all frames by JaidynReiman",
+      "authors": [
+        "JaidynReiman",
+        "ElizaWy",
+        "Stephen Challener (Redshrike)"
+      ],
+      "licenses": [
+        "OGA-BY 3.0"
+      ],
+      "urls": [
+        "https://github.com/ElizaWy/LPC/tree/main/Characters/Head",
+        "https://opengameart.org/content/ulpc-expanded-expressions"
+      ]
+    },
+    {
+      "fileName": "feet/armour/plate/male/walk/bronze.png",
+      "file": "feet/armour/plate",
+      "notes": "original by wulax, recolors by bigbeargames, edits for v3 base and recolors by bluecarrot16",
+      "authors": [
+        "Matthew Krohn (makrohn)",
+        "Johannes Sjölund (wulax)"
+      ],
+      "licenses": [
+        "OGA-BY 3.0",
+        "CC-BY-SA 3.0",
+        "GPL 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-medieval-fantasy-character-sprites"
+      ]
+    },
+    {
+      "fileName": "torso/clothes/longsleeve/longsleeve/male/walk.png",
+      "file": "torso/clothes/longsleeve/longsleeve/male",
+      "notes": "original by wulax; tweaks and further recolors by bluecarrot16; cleanup and climb/jump/run/sit/emote/revised combat adapted from LPC Revised by JaidynReiman",
+      "authors": [
+        "JaidynReiman",
+        "Johannes Sjölund (wulax)"
+      ],
+      "licenses": [
+        "OGA-BY 3.0",
+        "CC-BY-SA 3.0",
+        "GPL 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-medieval-fantasy-character-sprites",
+        "http://opengameart.org/content/lpc-clothing-updates",
+        "https://opengameart.org/content/lpc-revised-character-basics",
+        "https://github.com/ElizaWy/LPC/tree/main/Characters/Clothing",
+        "https://opengameart.org/content/lpc-expanded-sit-run-jump-more",
+        "https://opengameart.org/content/lpc-expanded-simple-shirts"
+      ]
+    },
+    {
+      "fileName": "legs/pants/male/walk.png",
+      "file": "legs/pants/male",
+      "notes": "original male pants by wulax, recolors and edits to v3 base by bluecarrot16, climb/jump/run/sit/emotes/revised combat by JaidynReiman based on ElizaWy's LPC Revised",
+      "authors": [
+        "bluecarrot16",
+        "JaidynReiman",
+        "ElizaWy",
+        "Matthew Krohn (makrohn)",
+        "Johannes Sjölund (wulax)",
+        "Stephen Challener (Redshrike)"
+      ],
+      "licenses": [
+        "OGA-BY 3.0",
+        "GPL 3.0",
+        "CC-BY-SA 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles",
+        "https://opengameart.org/content/lpc-medieval-fantasy-character-sprites",
+        "https://opengameart.org/content/lpc-expanded-pants"
+      ]
+    },
+    {
+      "fileName": "torso/armour/plate/male/walk.png",
+      "file": "torso/armour/plate/male",
+      "notes": "original by wulax, recolor by bigbeargames, color reduced to 7 colors and adapted to v3 bases by bluecarrot16, run/jump/sit/climb/revised combat by JaidynReiman, reduced colors to 6 (based on Napsio's Vitruvian)",
+      "authors": [
+        "Napsio (Vitruvian Studio)",
+        "JaidynReiman",
+        "bluecarrot16",
+        "Michael Whitlock (bigbeargames)",
+        "Johannes Sjölund (wulax)"
+      ],
+      "licenses": [
+        "OGA-BY 3.0",
+        "CC-BY-SA 3.0",
+        "GPL 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-medieval-fantasy-character-sprites",
+        "https://opengameart.org/content/lpc-combat-armor-for-women"
+      ]
+    },
+    {
+      "fileName": "hat/helmet/morion/adult/walk.png",
+      "file": "hat/helmet/morion",
+      "notes": "",
+      "authors": [
+        "ElizaWy",
+        "Sander Frenken (castelonia)"
+      ],
+      "licenses": [
+        "OGA-BY 3.0",
+        "CC-BY-SA 4.0",
+        "CC-BY-SA 3.0",
+        "GPL 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-realistic-helmet-pack",
+        "https://opengameart.org/content/lpc-expanded-hats-facial-helmets"
+      ]
+    },
+    {
+      "fileName": "hat/visor/grated_narrow/adult/walk.png",
+      "file": "hat/visor/grated_narrow",
+      "notes": "",
+      "authors": [
+        "bluecarrot16"
+      ],
+      "licenses": [
+        "CC-BY 3.0",
+        "CC-BY 4.0",
+        "OGA-BY 3.0",
+        "GPL 2.0",
+        "GPL 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-helmets",
+        "https://opengameart.org/content/lpc-expanded-hats-facial-helmets"
+      ]
+    },
+    {
+      "fileName": "torso/chainmail/male/walk.png",
+      "file": "torso/chainmail",
+      "notes": "minor edits by bluecarrot16, reduced colors by Napsio, adjusted Male colors and Idle/Sit/Emote/Climb by JaidynReiman",
+      "authors": [
+        "Johannes Sjölund (wulax)",
+        "Napsio (Vitruvian Studio)",
+        "JaidynReiman"
+      ],
+      "licenses": [
+        "OGA-BY 3.0",
+        "CC-BY-SA 3.0",
+        "GPL 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-medieval-fantasy-character-sprites"
+      ]
+    },
+    {
+      "fileName": "weapon/sword/saber/walk/saber.png",
+      "file": "weapon/sword/saber",
+      "notes": "",
+      "authors": [
+        "Daniel Eddeland (daneeklu)",
+        "Johannes Sjölund (wulax)",
+        "gr3yh47",
+        "bluecarrot16"
+      ],
+      "licenses": [
+        "CC-BY-SA 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-medieval-fantasy-character-sprites",
+        "https://opengameart.org/content/lpc-extended-weapon-animations"
+      ]
+    },
+    {
+      "fileName": "hat/accessory/plumage/adult/walk.png",
+      "file": "hat/accessory/plumage",
+      "notes": "",
+      "authors": [
+        "ElizaWy"
+      ],
+      "licenses": [
+        "OGA-BY 3.0",
+        "CC-BY-SA 3.0",
+        "CC-BY-SA 4.0",
+        "GPL 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-realistic-helmet-pack",
+        "https://opengameart.org/content/lpc-expanded-hats-facial-helmets"
+      ]
+    },
+    {
+      "fileName": "shield/heater/original/wood/bg/walk/oak.png",
+      "file": "shield/heater/original/wood",
+      "notes": "",
+      "authors": [
+        "bluecarrot16",
+        "Sander Frenken (castelonia)",
+        "ElizaWy"
+      ],
+      "licenses": [
+        "OGA-BY 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-shields"
+      ]
+    },
+    {
+      "fileName": "shield/heater/original/paint/bg/walk/red.png",
+      "file": "shield/heater/original/paint",
+      "notes": "original by ElizaWy, extended to all animation frames and v3 character base by bluecarrot16, expanded by JaidynReiman",
+      "authors": [
+        "bluecarrot16",
+        "ElizaWy",
+        "JaidynReiman"
+      ],
+      "licenses": [
+        "OGA-BY 3.0"
+      ],
+      "urls": [
+        "https://github.com/ElizaWy/LPC/tree/main/Characters/Props/Shield%2001%20-%20Heater%20Shield",
+        "https://opengameart.org/content/lpc-expanded-sit-run-jump-more"
+      ]
+    },
+    {
+      "fileName": "shield/heater/original/trim/fg/walk/steel.png",
+      "file": "shield/heater/original/trim",
+      "notes": "",
+      "authors": [
+        "bluecarrot16",
+        "Sander Frenken (castelonia)",
+        "ElizaWy"
+      ],
+      "licenses": [
+        "OGA-BY 3.0"
+      ],
+      "urls": [
+        "https://opengameart.org/content/lpc-shields"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b27ivk5i0gxej"]
+
+[ext_resource type="Texture2D" uid="uid://dad7b5all41ea" path="res://Assets/UI Elements/BalduinPortrait.png" id="1_dxtgh"]
+[ext_resource type="Script" uid="uid://6ygo6t5t7y2f" path="res://Scripts/player_hud.gd" id="1_qipxh"]
+[ext_resource type="FontFile" uid="uid://c4lkd4kxmkcnt" path="res://Assets/UI Elements/alagard_by_pix3m-d6awiwp.ttf" id="2_qipxh"]
+
+[node name="PlayerUi" type="Control" unique_id=660193599]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerHUD" type="MarginContainer" parent="." unique_id=1805893820]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 420.0
+offset_bottom = 220.0
+script = ExtResource("1_qipxh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerHUD" unique_id=598147562]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Portrait" type="TextureRect" parent="PlayerHUD/HBoxContainer" unique_id=1917660281]
+layout_mode = 2
+texture = ExtResource("1_dxtgh")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HealthLabel" type="Label" parent="PlayerHUD/HBoxContainer" unique_id=1931979967]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.875745, 0, 0.17276621, 1)
+theme_override_fonts/font = ExtResource("2_qipxh")
+theme_override_font_sizes/font_size = 100
+text = "100/100"
+
+[node name="Button" type="Button" parent="PlayerHUD/HBoxContainer" unique_id=1146118218]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_qipxh")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+alignment = 2
+
+[connection signal="pressed" from="PlayerHUD/HBoxContainer/Button" to="PlayerHUD" method="_on_button_pressed"]
