@@ -6,18 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bxnsah83mnov5" path="res://Assets/Cutscenes/BalduinCutscene/15.png" id="4_77l30"]
 [ext_resource type="Texture2D" uid="uid://bjqawkvuii3p0" path="res://Assets/Cutscenes/BalduinCutscene/16.png" id="5_t1b1q"]
 
-[node name="BalduinCutscene" type="Control" unique_id=57153645]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="BalduinCutscene" type="CanvasLayer" unique_id=1362894133]
 script = ExtResource("1_w5vvj")
 slides = Array[Texture2D]([ExtResource("2_8lv07"), ExtResource("3_0ggko"), ExtResource("4_77l30"), ExtResource("5_t1b1q")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1579408567]
-layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.9990001
 anchor_bottom = 1.005

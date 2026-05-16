@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cgyrfk85ycj4i" path="res://Assets/Player/standard/hurt.png" id="5_0u5uq"]
 [ext_resource type="Texture2D" uid="uid://bl3x560e8lw0h" path="res://Assets/Player/standard/idle.png" id="6_0u5uq"]
 [ext_resource type="Texture2D" uid="uid://ct8rto1l7yejn" path="res://Assets/Player/standard/walk.png" id="7_jlvik"]
+[ext_resource type="AudioStream" uid="uid://nj5x4aoqhn4a" path="res://Assets/Sounds/SFX/slashatk.mp3" id="8_jlvik"]
+[ext_resource type="AudioStream" uid="uid://dn16guyk3fio8" path="res://Assets/Sounds/SFX/hurt.mp3" id="9_jhyir"]
+[ext_resource type="AudioStream" uid="uid://de7sligi1kaln" path="res://Assets/Sounds/SFX/fireball.mp3" id="10_74mp2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlvik"]
 atlas = ExtResource("3_htcer")
@@ -868,6 +871,19 @@ collision_mask = 6
 [node name="Hitbox" type="CollisionShape2D" parent="Area2D" unique_id=960100907]
 y_sort_enabled = true
 shape = SubResource("CapsuleShape2D_gmlin")
+
+[node name="SlashPlayer" type="AudioStreamPlayer" parent="." unique_id=937014496]
+stream = ExtResource("8_jlvik")
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="HurtPlayer" type="AudioStreamPlayer" parent="." unique_id=814963340]
+stream = ExtResource("9_jhyir")
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="FireballPlayer" type="AudioStreamPlayer" parent="." unique_id=111148346]
+stream = ExtResource("10_74mp2")
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]

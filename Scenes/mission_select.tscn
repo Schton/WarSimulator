@@ -4,17 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bn26q0jlabb5t" path="res://Assets/UI Elements/ChapterSelect.png" id="2_kbmab"]
 [ext_resource type="FontFile" uid="uid://c4lkd4kxmkcnt" path="res://Assets/UI Elements/alagard_by_pix3m-d6awiwp.ttf" id="3_4ehau"]
 
-[node name="MissionSelect" type="Control" unique_id=2062547793]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MissionSelect" type="CanvasLayer" unique_id=296761206]
 script = ExtResource("1_kbmab")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=959298952]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,7 +18,6 @@ expand_mode = 2
 stretch_mode = 6
 
 [node name="Button" type="Button" parent="." unique_id=46920669]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18800001
 anchor_top = 0.093
@@ -40,7 +32,6 @@ theme_override_font_sizes/font_size = 40
 text = "RETURN"
 
 [node name="BalduinChapter" type="Button" parent="." unique_id=1761925603]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.282
 anchor_top = 0.87200004
@@ -55,7 +46,6 @@ theme_override_font_sizes/font_size = 30
 text = "SELECT"
 
 [node name="SeraphinaChapter" type="Button" parent="." unique_id=53630650]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.49500003
 anchor_top = 0.869
@@ -70,7 +60,6 @@ theme_override_font_sizes/font_size = 30
 text = "SELECT"
 
 [node name="GoldHawkChapter" type="Button" parent="." unique_id=1577408815]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.716
 anchor_top = 0.87200004

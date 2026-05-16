@@ -10,18 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://cmknbetkxch3v" path="res://Assets/Cutscenes/MainCutscene/11.png" id="8_hylgc"]
 [ext_resource type="Texture2D" uid="uid://bequimj0mp0ey" path="res://Assets/Cutscenes/MainCutscene/12.png" id="9_oyhab"]
 
-[node name="MainCutscene" type="Control" unique_id=57153645]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MainCutscene" type="CanvasLayer" unique_id=2043167293]
 script = ExtResource("1_kjdap")
 slides = Array[Texture2D]([ExtResource("2_7rkad"), ExtResource("3_eu5uw"), ExtResource("4_k7xlt"), ExtResource("5_lhwkg"), ExtResource("6_c2xks"), ExtResource("7_31lvt"), ExtResource("8_hylgc"), ExtResource("9_oyhab")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1579408567]
-layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.9990001
 anchor_bottom = 1.005
