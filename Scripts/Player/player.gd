@@ -33,6 +33,11 @@ var facing := Direction.DOWN
 @export var dash_duration := 0.25 # A quarter of a second
 var is_dashing := false
 
+# ================= SOUNDS =================
+@onready var slash_player = $SlashPlayer
+@onready var hurt_player = $HurtPlayer
+@onready var fireball_player = $FireballPlayer
+
 # ================= INPUT =================
 func _ready():
 	hp = max_hp
@@ -152,6 +157,11 @@ func attack():
 		Direction.RIGHT:
 			_set_anim("attack_right")
 	start_sword_hit()
+	
+	if slash_player:
+		slash_player.play(1.5)
+	else:
+		print("Warning: SlashPlayer node not found!")
 
 func start_sword_hit():
 	var hitbox = $SwordHitbox
@@ -223,6 +233,7 @@ func fire_projectile():
 	var projectile = projectile_scene.instantiate()
 	get_parent().add_child(projectile)
 	projectile.global_position = global_position
+	fireball_player.play()
 
 	# Pass the distance variable to the projectile
 	projectile.max_distance = projectile_distance
@@ -279,4 +290,8 @@ func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage") and body.faction != faction:
 		var knock = global_position.direction_to(body.global_position)
 		body.take_damage(sword_damage, knock)
+		if hurt_player:
+			hurt_player.play()
+		else:
+			print("Warning: HurtPlayer node not found!")
 	#print("Sword touched:", body.name)

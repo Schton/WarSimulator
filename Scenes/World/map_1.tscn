@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bo0drhibojc67" path="res://Assets/World/Terrain/Decorations/Rocks in the Water/Water Rocks_04.png" id="1_3bp3k"]
 [ext_resource type="PackedScene" uid="uid://b27ivk5i0gxej" path="res://Scenes/balduin_ui.tscn" id="1_ds60o"]
 [ext_resource type="Texture2D" uid="uid://chei7qhbgjss4" path="res://Assets/World/Terrain/Tileset/Water Background color.png" id="1_tiebe"]
+[ext_resource type="Script" uid="uid://b4gatkrpsppwt" path="res://Scripts/World/map_1.gd" id="1_w1brc"]
 [ext_resource type="Texture2D" uid="uid://c00piqpyijhwt" path="res://Assets/World/Terrain/Tileset/Water Foam.png" id="2_5tr0j"]
 [ext_resource type="Texture2D" uid="uid://074pibnsawrs" path="res://Assets/World/Terrain/Decorations/Rocks in the Water/Water Rocks_02.png" id="2_efu32"]
 [ext_resource type="Texture2D" uid="uid://c281lrgxiskjq" path="res://Assets/World/MainLev2.0.png" id="3_5tr0j"]
@@ -15378,6 +15379,7 @@ metadata/_custom_type_script = "uid://jh11p4sjttt4"
 [node name="Map1" type="Node2D" unique_id=270994157]
 y_sort_enabled = true
 position = Vector2(76, 1090)
+script = ExtResource("1_w1brc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1702138904]
 
