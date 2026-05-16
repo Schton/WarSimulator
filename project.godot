@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WarSimulator"
-run/main_scene="uid://5tlc8t2mgjv5"
+run/main_scene="uid://dhd6a00ita01k"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,10 +22,6 @@ buses/default_bus_layout="uid://cte3ivtu2ce8r"
 [autoload]
 
 MusicManager="*uid://bfhb5o3qbq1ny"
-
-[display]
-
-window/size/mode=3
 
 [input]
 

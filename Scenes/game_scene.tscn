@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dhd6a00ita01k"]
+
+[ext_resource type="Script" uid="uid://dtpqfl7nqbwg" path="res://Scripts/game_scene.gd" id="1_b6fju"]
+
+[sub_resource type="Animation" id="Animation_gp2re"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fs4xp"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0009999999, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ycmta"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.23333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhomj"]
+_data = {
+&"RESET": SubResource("Animation_gp2re"),
+&"fade_to_black": SubResource("Animation_fs4xp"),
+&"fade_to_normal": SubResource("Animation_ycmta")
+}
+
+[node name="GameScene" type="Node2D" unique_id=1420584154]
+script = ExtResource("1_b6fju")
+
+[node name="CurrentScene" type="Node2D" parent="." unique_id=292152736]
+
+[node name="ScreenFade" type="CanvasLayer" parent="." unique_id=1828015807]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="ScreenFade" unique_id=139617769]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenFade" unique_id=1760674776]
+libraries/ = SubResource("AnimationLibrary_rhomj")
